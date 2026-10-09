@@ -509,7 +509,7 @@ def run_patrol(grid, max_steps=500):
 
 
 def report_to_json(stats):
-    """把 stats 序列化为确定性的 JSON 字符串。"""
+    
     return json.dumps(stats, sort_keys=True, separators=(",", ":"))
 
 
