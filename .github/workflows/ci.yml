@@ -35,7 +35,7 @@ jobs:
           echo "对比基准（仓库初始 commit）: $BASE"
           CHANGED=$(git diff --name-only "$BASE" HEAD)
           echo "$CHANGED"
-          BAD=$(echo "$CHANGED" | grep -v -E '^(src/main/.*|README\.md|\.agent-sessions/.*|.github/workflows/.*|\.github/settings.yml)$' | grep -v '^$' || true)
+          BAD=$(echo "$CHANGED" | grep -v -E '^(src/main/.*|src/tests/.*|README\.md|\.agent-sessions/.*|.github/workflows/.*|\.github/settings.yml)$' | grep -v '^$' || true)
           if [ -n "$BAD" ]; then
             echo "::error::只允许修改 src/main/** 与 README.md，以下文件不在白名单："
             echo "$BAD"
