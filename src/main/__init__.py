@@ -509,7 +509,6 @@ def run_patrol(grid, max_steps=500):
 
 
 def report_to_json(stats):
-    
     return json.dumps(stats, sort_keys=True, separators=(",", ":"))
 
 
