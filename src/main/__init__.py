@@ -139,6 +139,9 @@ class SentryGrid:
 
     @current_pos.setter
     def current_pos(self, value):
+        """TODO(Q3)：位置 setter；三重输入校验见题面 Q3 规范第 1 条。"""
+        #raise NotImplementedError("Q3 current_pos.setter：题面 Q3·位置校验三步")
+
         if not isinstance(value, (tuple, list)):
             raise TypeError("current_pos must be a list or tuple")
         if len(value) != 2:
@@ -146,10 +149,12 @@ class SentryGrid:
         clamped_val = self._clamp_cell(value)
         self._pos = clamped_val
         return
-        """TODO(Q3)：位置 setter；三重输入校验见题面 Q3 规范第 1 条。"""
-        raise NotImplementedError("Q3 current_pos.setter：题面 Q3·位置校验三步")
+        
 
     def move_forward(self):
+        """TODO(Q3)：朝当前 facing 前进一格，返回执行后的位置；
+        #碰撞、耗电与断电语义见题面 Q3 规范。"""
+        raise NotImplementedError("Q3 move_forward：题面 Q3·前进、碰撞与断电")
         if self._fuel <= 0:
             return self.current_pos
 
@@ -173,11 +178,10 @@ class SentryGrid:
             self.current_pos = (nx, ny)
             self._fuel -= 1
             return self.current_pos
-        """TODO(Q3)：朝当前 facing 前进一格，返回执行后的位置；
-        碰撞、耗电与断电语义见题面 Q3 规范。"""
-        raise NotImplementedError("Q3 move_forward：题面 Q3·前进、碰撞与断电")
-
+        
     def turn_left(self):
+        """TODO(Q3)：原地左转 90°，返回新的 Facing（不耗电）。"""
+        #raise NotImplementedError("Q3 turn_left")
         mapping = {
             Facing.UP: Facing.LEFT,
             Facing.LEFT: Facing.DOWN,
@@ -186,10 +190,11 @@ class SentryGrid:
         }
         self._facing = mapping[self._facing]
         return self._facing
-        """TODO(Q3)：原地左转 90°，返回新的 Facing（不耗电）。"""
-        raise NotImplementedError("Q3 turn_left")
-
+        
     def turn_right(self):
+        """TODO(Q3)：原地右转 90°，返回新的 Facing（不耗电）。"""
+        #raise NotImplementedError("Q3 turn_right")
+
         mapping = {
             Facing.UP: Facing.RIGHT,
             Facing.RIGHT: Facing.DOWN,
@@ -198,9 +203,7 @@ class SentryGrid:
         }
         self._facing = mapping[self._facing]
         return self._facing
-        """TODO(Q3)：原地右转 90°，返回新的 Facing（不耗电）。"""
-        raise NotImplementedError("Q3 turn_right")
-
+        
 
 # ---------------------------------------------------------------------------
 # Q4 贪心导航（题面 Q4·单步贪心导航策略）
